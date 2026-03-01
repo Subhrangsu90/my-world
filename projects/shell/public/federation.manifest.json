@@ -1,0 +1,4 @@
+{
+	"portfolio": "http://localhost:4201/remoteEntry.json",
+	"blog": "http://localhost:4202/remoteEntry.json"
+}
