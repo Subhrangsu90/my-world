@@ -1,59 +1,139 @@
-# MyWorld
+# My World – Angular Micro Frontend Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.18.
+A **personal portfolio platform built with Angular using Micro Frontend Architecture (MFE)**.
+This project demonstrates how multiple independent Angular applications can be integrated into a single platform using **Module Federation**.
 
-## Development server
+The goal of this project is to build a scalable developer portfolio while experimenting with modern frontend architecture patterns.
 
-To start a local development server, run:
 
-```bash
-ng serve
+
+# Architecture Overview
+
+This project follows a **Micro Frontend architecture** where a **shell application** loads multiple independent applications (remotes).
+
+```
+                ┌──────────────┐
+                │   Shell App  │
+                │ (Host App)   │
+                └──────┬───────┘
+                       │
+        ┌──────────────┼──────────────┐
+        │                              │
+ ┌───────────────┐              ┌────────────────┐
+ │ Portfolio MFE │              │ Blog Control   │
+ │               │              │ Admin MFE      │
+ └───────────────┘              └────────────────┘
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 1. Shell Application
 
-## Code scaffolding
+The **Shell** acts as the host container.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Responsibilities:
 
-```bash
-ng generate component component-name
+* Handles application routing
+* Dynamically loads remote micro frontends
+* Integrates all applications into a unified UI
+
+### 2. Portfolio Micro Frontend
+
+A dedicated micro application responsible for displaying the portfolio.
+
+Features:
+
+* Developer profile
+* Project showcase
+* Skills & experience
+* Portfolio UI pages
+
+### 3. Blog Control Micro Frontend
+
+A separate micro frontend responsible for **blog management**.
+
+Features:
+
+* Create blog posts
+* Edit blog content
+* Manage blog articles
+* Admin-style blog dashboard
+
+
+# Tech Stack
+
+* **Angular**
+* **Webpack 5 Module Federation**
+* **Angular CLI**
+* **TypeScript**
+* **RxJS**
+* **NgRx**
+
+Module Federation allows multiple applications to share modules and load them dynamically at runtime, enabling scalable micro-frontend architectures. ([SparkCodehub][1])
+
+
+# Project Goals
+
+This project was created to:
+
+* Learn and implement **Angular Micro Frontends**
+* Build a **scalable portfolio platform**
+* Separate features into **independent deployable apps**
+* Explore **Module Federation with Angular**
+
+
+# Folder Structure (Conceptual)
+
+```
+my-world
+│
+├── shell                # Main host application
+│
+├── portfolio-mfe       # Portfolio micro frontend
+│
+├── blog-control-mfe    # Blog management micro frontend
+│
+└── shared              # Shared libraries / utilities
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+# Running the Project
+
+### 1 Clone the repository
 
 ```bash
-ng generate --help
+git clone https://github.com/Subhrangsu90/my-world.git
+cd my-world
 ```
 
-## Building
-
-To build the project run:
+### 2 Install dependencies
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### 3 Run the applications
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Start the shell and micro frontends:
 
 ```bash
-ng test
+ng serve shell
+ng serve portfolio-mfe
+ng serve blog-control-mfe
 ```
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
+# Future Improvements
 
-```bash
-ng e2e
-```
+* Public blog viewer application
+* Authentication for blog admin
+* Shared component library
+* Deployment with Docker
+* CI/CD pipeline
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
+# Author
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Subhrangsu**
+Angular Developer
+
+GitHub:
+[https://github.com/Subhrangsu90](https://github.com/Subhrangsu90)
+
