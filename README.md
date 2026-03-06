@@ -1,10 +1,11 @@
 # My World – Angular Micro Frontend Portfolio
 
 A **personal portfolio platform built with Angular using Micro Frontend Architecture (MFE)**.
-This project demonstrates how multiple independent Angular applications can be integrated into a single platform using **Module Federation**.
+This project demonstrates how multiple independent Angular applications can be integrated into a single platform using **Native Federation**.
 
-The goal of this project is to build a scalable developer portfolio while experimenting with modern frontend architecture patterns.
+The project demonstrates how multiple independent Angular applications can be integrated into a single platform using a **Shell (Host)** application and multiple remote micro frontends.
 
+This repository is mainly used to experiment with **Angular Native Federation**, scalable frontend architecture, and modular portfolio development.
 
 
 # Architecture Overview
@@ -60,14 +61,15 @@ Features:
 
 # Tech Stack
 
-* **Angular**
-* **Webpack 5 Module Federation**
+* **Angular 20**
+* **Native Federation**
 * **Angular CLI**
 * **TypeScript**
 * **RxJS**
 * **NgRx**
+* **TailwindCSS**
 
-Module Federation allows multiple applications to share modules and load them dynamically at runtime, enabling scalable micro-frontend architectures. ([SparkCodehub][1])
+This project uses **Native Federation** via `@angular-architects/native-federation`, which implements the Module Federation concept using **ES Modules and Import Maps**, removing the dependency on webpack.
 
 
 # Project Goals
@@ -77,7 +79,7 @@ This project was created to:
 * Learn and implement **Angular Micro Frontends**
 * Build a **scalable portfolio platform**
 * Separate features into **independent deployable apps**
-* Explore **Module Federation with Angular**
+* Experiment with **Native Federation**
 
 
 # Folder Structure (Conceptual)
@@ -127,6 +129,8 @@ ng serve blog-control-mfe
 * Shared component library
 * Deployment with Docker
 * CI/CD pipeline
+
+**_Note_**: All development in progress.
 
 
 # Author
