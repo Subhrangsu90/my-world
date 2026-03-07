@@ -1,0 +1,119 @@
+<section id="work" class="py-14" style="border-bottom: 1px solid var(--border)">
+  <h2 reveal class="rv text-xl font-bold tracking-tight mb-1 c-ink">Work Experience</h2>
+  <p reveal class="rv text-sm mb-8 c-ink4">
+    I've worked at a few great companies. It's mostly about the culture.
+  </p>
+
+  <div reveal class="rv d1 flex flex-col sm:flex-row gap-6">
+    <!-- company tabs -->
+    <div class="flex sm:flex-col gap-1 shrink-0 overflow-x-auto pb-1 sm:pb-0 sm:w-36">
+      <button
+        (click)="setActiveTab('nexus')"
+        id="tab-nexus"
+        class="tab-btn mono text-[11px] px-3 py-2 whitespace-nowrap"
+        [class.active]="activeTab() === 'nexus'"
+      >
+        Nexus
+      </button>
+      <button
+        (click)="setActiveTab('crypto')"
+        id="tab-crypto"
+        class="tab-btn mono text-[11px] px-3 py-2 whitespace-nowrap"
+        [class.active]="activeTab() === 'crypto'"
+      >
+        CryptoStream
+      </button>
+      <button
+        (click)="setActiveTab('clarity')"
+        id="tab-clarity"
+        class="tab-btn mono text-[11px] px-3 py-2 whitespace-nowrap"
+        [class.active]="activeTab() === 'clarity'"
+      >
+        Clarity
+      </button>
+    </div>
+
+    <!-- panels -->
+    <div class="flex-1 min-w-0">
+      <div id="panel-nexus" class="tab-panel" [class.active]="activeTab() === 'nexus'">
+        <div class="mb-4">
+          <div class="text-base font-semibold c-ink">
+            Senior Angular Engineer
+            <a href="#" style="color: #e8334a" class="hover:underline">@Nexus</a>
+          </div>
+          <div class="mono text-[11px] mt-1 c-ink4">Jan 2022 – Present · San Francisco, CA</div>
+        </div>
+        <ul class="flex flex-col gap-2.5">
+          <li class="flex items-start gap-2.5 text-sm font-light c-ink3">
+            <span style="color: #e8334a" class="mt-0.5 shrink-0">✓</span>Led migration from
+            NgModules to standalone components — cut load time by 38%
+          </li>
+          <li class="flex items-start gap-2.5 text-sm font-light c-ink3">
+            <span style="color: #e8334a" class="mt-0.5 shrink-0">✓</span>Introduced NgRx Signal
+            Store, reducing boilerplate by 60% across the codebase
+          </li>
+          <li class="flex items-start gap-2.5 text-sm font-light c-ink3">
+            <span style="color: #e8334a" class="mt-0.5 shrink-0">✓</span>Built shared component
+            library used across 4 product teams with full Storybook docs
+          </li>
+          <li class="flex items-start gap-2.5 text-sm font-light c-ink3">
+            <span style="color: #e8334a" class="mt-0.5 shrink-0">✓</span>Optimised bundle size 42%
+            using differential loading and granular lazy routes
+          </li>
+        </ul>
+      </div>
+
+      <div id="panel-crypto" class="tab-panel" [class.active]="activeTab() === 'crypto'">
+        <div class="mb-4">
+          <div class="text-base font-semibold c-ink">
+            Angular Specialist
+            <a href="#" style="color: #e8334a" class="hover:underline">@CryptoStream</a>
+          </div>
+          <div class="mono text-[11px] mt-1 c-ink4">Mar 2019 – Dec 2021 · Remote</div>
+        </div>
+        <ul class="flex flex-col gap-2.5">
+          <li class="flex items-start gap-2.5 text-sm font-light c-ink3">
+            <span style="color: #e8334a" class="mt-0.5 shrink-0">✓</span>Built real-time trading UI
+            processing 10k+ WebSocket events/sec with zero UI lag
+          </li>
+          <li class="flex items-start gap-2.5 text-sm font-light c-ink3">
+            <span style="color: #e8334a" class="mt-0.5 shrink-0">✓</span>OnPush change detection
+            throughout — reduced CPU usage by 45%
+          </li>
+          <li class="flex items-start gap-2.5 text-sm font-light c-ink3">
+            <span style="color: #e8334a" class="mt-0.5 shrink-0">✓</span>Custom virtual scroll
+            handling 100k+ rows at smooth 60fps
+          </li>
+          <li class="flex items-start gap-2.5 text-sm font-light c-ink3">
+            <span style="color: #e8334a" class="mt-0.5 shrink-0">✓</span>Integrated D3.js
+            candlestick charts synced to Angular's change detection cycle
+          </li>
+        </ul>
+      </div>
+
+      <div id="panel-clarity" class="tab-panel" [class.active]="activeTab() === 'clarity'">
+        <div class="mb-4">
+          <div class="text-base font-semibold c-ink">
+            Frontend Developer
+            <a href="#" style="color: #e8334a" class="hover:underline">@Clarity Digital</a>
+          </div>
+          <div class="mono text-[11px] mt-1 c-ink4">Jun 2016 – Feb 2019 · London, UK</div>
+        </div>
+        <ul class="flex flex-col gap-2.5">
+          <li class="flex items-start gap-2.5 text-sm font-light c-ink3">
+            <span style="color: #e8334a" class="mt-0.5 shrink-0">✓</span>Delivered Angular component
+            libraries across 8 enterprise client products
+          </li>
+          <li class="flex items-start gap-2.5 text-sm font-light c-ink3">
+            <span style="color: #e8334a" class="mt-0.5 shrink-0">✓</span>Led AngularJS → Angular 2+
+            migrations from ground up for 3 major clients
+          </li>
+          <li class="flex items-start gap-2.5 text-sm font-light c-ink3">
+            <span style="color: #e8334a" class="mt-0.5 shrink-0">✓</span>Established company-wide
+            WCAG 2.1 accessibility standards and testing workflows
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

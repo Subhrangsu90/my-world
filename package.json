@@ -6,7 +6,7 @@
     "shell": "ng serve shell --configuration development --port 4200 -o",
     "portfolio": "ng serve portfolio --configuration development --port 4201 -o",
     "blog": "ng serve blog --configuration development --port 4202 -o",
-    "start": "concurrently \"ng run portfolio:serve\" \"ng run shell:serve\" \"ng run blog:serve\"",
+    "start": "concurrently \"ng build design-system\" \"ng run portfolio:serve\" \"ng run shell:serve\" \"ng run blog:serve\"",
     "build": "ng run shell:build && ng run portfolio:build && ng run blog:build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
