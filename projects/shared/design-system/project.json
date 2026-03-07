@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "design-system",
+  "projectType": "library",
+  "sourceRoot": "projects/shared/design-system/src",
+  "prefix": "lib",
+  "targets": {
+    "build": {
+      "executor": "@angular/build:ng-packagr",
+      "configurations": {
+        "production": {
+          "tsConfig": "projects/shared/design-system/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "projects/shared/design-system/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@angular/build:karma",
+      "options": {
+        "tsConfig": "projects/shared/design-system/tsconfig.spec.json"
+      }
+    }
+  }
+}

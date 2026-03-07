@@ -1,0 +1,119 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "blog",
+  "projectType": "application",
+  "generators": {},
+  "sourceRoot": "projects/blog/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-architects/native-federation:build",
+      "options": {
+        "ssr": false
+      },
+      "configurations": {
+        "production": {
+          "target": "blog:esbuild:production"
+        },
+        "development": {
+          "target": "blog:esbuild:development",
+          "dev": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-architects/native-federation:build",
+      "options": {
+        "target": "blog:serve-original:development",
+        "rebuildDelay": 500,
+        "dev": true,
+        "cacheExternalArtifacts": false,
+        "port": 0
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular/build:extract-i18n"
+    },
+    "test": {
+      "executor": "@angular/build:karma",
+      "options": {
+        "tsConfig": "projects/blog/tsconfig.spec.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "projects/blog/public"
+          }
+        ],
+        "styles": [
+          "projects/blog/src/styles.css"
+        ]
+      }
+    },
+    "esbuild": {
+      "executor": "@angular/build:application",
+      "options": {
+        "browser": "projects/blog/src/main.ts",
+        "tsConfig": "projects/blog/tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "projects/blog/public"
+          }
+        ],
+        "styles": [
+          "projects/blog/src/styles.css"
+        ],
+        "outputMode": "static",
+        "security": {
+          "allowedHosts": []
+        },
+        "polyfills": [
+          "es-module-shims"
+        ],
+        "outputPath": "dist/blog"
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kB",
+              "maximumError": "1MB"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kB",
+              "maximumError": "8kB"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{options.outputPath}"
+      ]
+    },
+    "serve-original": {
+      "executor": "@angular/build:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "blog:esbuild:production"
+        },
+        "development": {
+          "buildTarget": "blog:esbuild:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4302
+      }
+    }
+  }
+}
